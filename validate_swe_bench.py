@@ -73,7 +73,7 @@ class SWEBenchValidator:
                 file_result = self._validate_single_file(file_name)
                 all_results["file_results"][file_name] = file_result
                 
-                if file_result.get("success", False):
+                if file_result.get("success", False) and (file_result.get("validation_analysis", {}).get("validation_status") == "success"):
                     all_results["successful_files"] += 1
                 else:
                     all_results["failed_files"] += 1
